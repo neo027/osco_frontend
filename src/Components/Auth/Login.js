@@ -17,7 +17,11 @@ class Login extends Component {
 	constructor(){
 		super();
 	
-		this.state = {
+		this.state = this.getInitialState()
+	}
+
+	getInitialState = () => {
+		return {
 			data:{
 				username:'',
 				password:''
@@ -28,7 +32,7 @@ class Login extends Component {
 				otp:''
 			},
 			error:{}
-		}
+		};
 	}
 
 
@@ -67,6 +71,7 @@ class Login extends Component {
 	}
 
 	onUserLoggedIn = (response) => {
+		this.setState(this.getInitialState());
 		saveToken(response.token);
 		this.props.userLoggedIn(response.user);
 	}
@@ -85,7 +90,7 @@ class Login extends Component {
               </div>
               <div className="row align-items-center pt-3 pb-5">
                 <div className="col text-right">
-                  <p className="mb-0 fw-300"><a className="text-muted small-2" href="#forgot-password">Forgot password?</a></p>
+                  <p className="mb-0 fw-300"><div style={{cursor:'pointer'}} className="text-muted small-2">Forgot password?</div></p>
                 </div>
               </div>
               <button className="btn btn-lg btn-block btn-primary" type="submit">Login</button>

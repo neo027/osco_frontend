@@ -16,7 +16,11 @@ class OTPVerify extends Component {
 	}
 
 	componentDidMount(){
-		this.otpTimer = setInterval(
+		this.otpTimer = this.resetTimer();
+	}
+
+	resetTimer = () => {
+		return setInterval(
 	      () => {
 	      	if(this.state.timer === 0){
 	      		clearInterval(this.otpTimer);
@@ -39,6 +43,7 @@ class OTPVerify extends Component {
 			.then(data => {
 				if(data.otp) {
 					this.setState({timer:60});
+					this.otpTimer = this.resetTimer();
 				}
 				else {
 					this.setState({error:'could not send otp'});

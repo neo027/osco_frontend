@@ -1,7 +1,24 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
+import {connect} from 'react-redux';
+
+import {openLoginModal, openSignupModal} from '../../Actions/Auth';
+
+
 class Footer extends Component {
+
+	handleShowLogin = () => {
+		if(!this.props.isLoggedIn){
+			this.props.showLogin();
+		}
+	}
+
+	handleShowSignup = () => {
+		if(!this.props.isLoggedIn){
+			this.props.showSignup();
+		}
+	}
 
 	render(){
 		return (
@@ -17,10 +34,10 @@ class Footer extends Component {
 		            <hr className="d-xl-none" />
 		          </div>
 		          <div className="col-4 col-xl-2 offset-xl-1">
-		            <div className="nav flex-column"> <a className="nav-link" href="#home">Home</a> <a className="nav-link" href="#about">About Us</a> <Link className="nav-link" to="/distributors">Distributor List</Link></div>
+		            <div className="nav flex-column"> <Link className="nav-link" to="/profile">Home</Link> <Link className="nav-link" to="/about">About Us</Link> <Link className="nav-link" to="/distributors">Distributor List</Link></div>
 		          </div>
 		          <div className="col-4 col-xl-2">
-		            <div className="nav flex-column"> <a className="nav-link" href="#contact-us">Contact Us</a> <div className="nav-link">Log-in</div> <div className="nav-link">Sign-up</div></div>
+		            <div className="nav flex-column"> <Link className="nav-link" to="/contact-us">Contact Us</Link> <div onClick={this.handleShowLogin} style={{cursor:'pointer'}} className="nav-link">Log-in</div> <div style={{cursor:'pointer'}} onClick={this.handleShowSignup} className="nav-link">Sign-up</div></div>
 		          </div>
 		          <div className="col-4 col-xl-2">
 		            <div className="nav flex-column"> <a className="nav-link" href="#ios">iOS App Download</a> <a className="nav-link" href="#android">Android App Download</a></div>
@@ -32,4 +49,15 @@ class Footer extends Component {
 	}
 }
 
-export default Footer;
+const mapStateToProps = (state) => {
+	return {
+		isLoggedIn:state.auth.isLoggedIn
+	}
+}
+
+const mapDispatchToProps = {
+	showLogin:openLoginModal,
+	showSignup:openSignupModal
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);
