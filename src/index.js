@@ -10,7 +10,7 @@ import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
-import {getToken, saveToken, removeToken} from './Utilities';
+import {getToken, removeToken} from './Utilities';
 import {userLoggedIn} from './Actions/Auth';
 import {fetchMe} from './Api/Auth';
 

@@ -14,6 +14,10 @@ class component extends Component {
 	}
 
 	render(){
+		let amt = parseFloat(this.state.qty * 20);
+		let gst = parseFloat(amt  * 0.28);
+		let total = amt + gst;
+
 		return (
 			<React.Fragment>
 				<header className="header p-0 text-white">
@@ -70,7 +74,16 @@ class component extends Component {
 															  	<p><strong>Subtotal:</strong></p>
 															</div>
 															<div>
-																<p>₹{this.state.qty * 20}</p>
+																<p>₹{amt.toFixed(2)}</p>
+															</div>
+														</div>
+						                              	<hr />
+						                              	<div className="flexbox">
+															<div>
+															  	<p><strong>GST:</strong></p>
+															</div>
+															<div>
+																<p>₹{gst.toFixed(2)}</p>
 															</div>
 														</div>
 						                              	<hr />
@@ -79,7 +92,7 @@ class component extends Component {
 						                                  		<p><strong>Total:</strong></p>
 						                                	</div>
 						                                	<div>
-						                                  		<p className="fw-600">₹{this.state.qty * 20}</p>
+						                                  		<p className="fw-600">₹{total.toFixed(2)}</p>
 						                                	</div>
 						                              	</div>
 						                            </div>

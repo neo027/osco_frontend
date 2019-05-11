@@ -27,8 +27,8 @@ class DistributorProfile extends Component {
 		                      <input className="form-control form-control-sm" type="text" placeholder="******" readonly />
 		                    </div>
 		                    <div className="mt-3">
-		                        <a className="btn btn-primary px-6" href="#">Edit Profile</a>
-		                        </div>
+		                        <button className="btn btn-primary px-6" >Edit Profile</button>
+		                    </div>
 		                  </div>
 		                  <div className="col-md-6">
 		                    <div className="form-group">

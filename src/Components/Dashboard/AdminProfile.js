@@ -23,7 +23,7 @@ class AdminProfile extends Component {
 	                      <input className="form-control form-control-sm" type="text" value={this.props.user.email} placeholder="Email ID" readOnly />
 	                    </div>
 	                    <div className="mt-3">
-	                        <a className="btn btn-primary px-6" href="#">Edit Profile</a>
+	                        <button className="btn btn-primary px-6">Edit Profile</button>
 	                    </div>
 	                  </div>
 	                  <div className="col-md-6">
