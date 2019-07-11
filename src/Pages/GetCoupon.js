@@ -5,7 +5,7 @@ import {getToken} from '../Utilities';
 
 import CouponCard from '../Components/Cards/Coupon/Card';
 
-import {openLoginModal, openSignupModal} from '../Actions/Auth';
+import {openLoginModal} from '../Actions/Auth';
 
 class component extends Component {
 

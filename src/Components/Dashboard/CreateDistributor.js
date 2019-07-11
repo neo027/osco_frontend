@@ -49,7 +49,7 @@ class CreateDistributor extends Component {
 	}
 
 	validate = () => {
-		let {name, addressLine2, logo, addressLine1, city, state, phone, mobileNumber, email, pincode, gstin} = this.state.data;
+		let {name, logo, addressLine1, city, state, mobileNumber, email, pincode} = this.state.data;
 
 		let error = {};
 
@@ -176,7 +176,7 @@ class CreateDistributor extends Component {
 	                        <div className="col-md-6">
 	                          <div className="form-group">
 	                            <label>GSTIN</label>
-	                            <input className={"form-control form-control-sm"} type="text" name="gstin" onChange={this.handleChange} value={gstin} placeholder="Last Name"/>
+	                            <input className={"form-control form-control-sm"} type="text" name="gstin" onChange={this.handleChange} value={gstin} placeholder="GSTIN"/>
 	                          </div>
 	                          <div className="form-group">
 	                              <label>Address Line 2</label>
